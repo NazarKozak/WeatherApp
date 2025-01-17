@@ -61,6 +61,8 @@ struct HomeView: View {
         .task {
             if AppConfiguration.shared.config.weatherAPIKey == "REPLACE_WITH_YOUR_KEY" {
                 router.showSheet(.error(error: "Please replace WEATHER_API_KEY with your  [WeatherApi](https://www.weatherapi.com/) key in Configuration/Dev.xcconfig and Configuration/Prod.xcconfig."))
+            } else {
+                await viewModel.updateLastWeather()
             }
         }
     }

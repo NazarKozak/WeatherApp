@@ -62,4 +62,19 @@ class HomeViewModel: ObservableObject {
             self.isLoading = false
         }
     }
+
+    @MainActor
+    func updateLastWeather() async {
+        guard let weather else { return }
+
+        let result = await weatherApiService.current(weather.location.name)
+        switch result {
+        case let .success(item):
+            DefaultsHelper.lastWeather = item
+            self.weather = item
+        case .failure(let error):
+            logger.error("Failed to load locations: \(error)")
+            self.error = error.localizedDescription
+        }
+    }
 }
