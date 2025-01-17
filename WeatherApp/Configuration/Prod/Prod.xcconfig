@@ -1,0 +1,12 @@
+//
+//  Prod.xcconfig
+//  WeatherApp
+//
+//  Created by Nazar Kozak on 17.01.2025.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+WEATHER_API_KEY=REPLACE_WITH_YOUR_KEY
+WEATHER_API_ENDPOINT=api.weatherapi.com/v1
