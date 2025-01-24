@@ -173,3 +173,9 @@ struct Weather: Codable {
         }
     }
 }
+
+extension Weather: Equatable {
+    static func == (lhs: Weather, rhs: Weather) -> Bool {
+        lhs.location.name == rhs.location.name
+    }
+}
